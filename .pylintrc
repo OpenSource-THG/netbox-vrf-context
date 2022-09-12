@@ -1,0 +1,8 @@
+[MASTER]
+fail-under=8.01
+
+[MESSAGES CONTROL]
+disable=similarities,missing-function-docstring,missing-method-docstring,missing-module-docstring,missing-class-docstring
+
+[FORMAT]
+max-line-length=120

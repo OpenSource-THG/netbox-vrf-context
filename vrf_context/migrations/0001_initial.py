@@ -25,13 +25,26 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, null=True)),
                 ('last_updated', models.DateTimeField(auto_now=True, null=True)),
-                ('custom_field_data', models.JSONField(blank=True, default=dict, encoder=django.core.serializers.json.DjangoJSONEncoder)),
+                ('custom_field_data', models.JSONField(
+                    blank=True,
+                    default=dict,
+                    encoder=django.core.serializers.json.DjangoJSONEncoder)),
                 ('comments', models.TextField(blank=True)),
-                ('bgp_sessions', models.ManyToManyField(to='netbox_bgp.bgpsession')),
-                ('device', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='devices', to='dcim.device')),
-                ('static_routes', models.ManyToManyField(to='netbox_static_routes.staticroute')),
-                ('tags', taggit.managers.TaggableManager(through='extras.TaggedItem', to='extras.Tag')),
-                ('vrf', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='contexts', to='ipam.vrf')),
+                ('bgp_sessions', models.ManyToManyField(
+                    to='netbox_bgp.bgpsession')),
+                ('device', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='devices',
+                    to='dcim.device')),
+                ('static_routes', models.ManyToManyField(
+                    to='netbox_static_routes.staticroute')),
+                ('tags', taggit.managers.TaggableManager(
+                    through='extras.TaggedItem',
+                    to='extras.Tag')),
+                ('vrf', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='contexts',
+                    to='ipam.vrf')),
             ],
             options={
                 'abstract': False,

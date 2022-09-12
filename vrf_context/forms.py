@@ -4,7 +4,7 @@ from netbox_bgp.models import BGPSession
 from netbox_static_routes.models import StaticRoute
 from netbox.forms import NetBoxModelForm
 from utilities.forms.fields import \
-    CommentField, DynamicModelChoiceField, DynamicModelMultipleChoiceField
+    DynamicModelChoiceField, DynamicModelMultipleChoiceField
 from .models import VRFContext
 
 class VRFContextForm(NetBoxModelForm):

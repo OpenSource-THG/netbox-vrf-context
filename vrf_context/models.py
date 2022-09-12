@@ -1,7 +1,6 @@
-from django.contrib.postgres.fields import ArrayField
 from django.db import models
-from netbox.models import NetBoxModel
 from django.urls import reverse
+from netbox.models import NetBoxModel
 
 class VRFContext(NetBoxModel):
     vrf = models.ForeignKey(
@@ -25,4 +24,3 @@ class VRFContext(NetBoxModel):
 
     def get_absolute_url(self):
         return reverse('plugins:vrf_context:vrfcontext', args=[self.pk])
-    
