@@ -5,6 +5,7 @@ description = "VRF Context plugin for Netbox"
 authors = ["The Hut Group"]
 readme = "README.md"
 packages = [{include = "vrf_context"}]
+include = ["vrf_context/templates"]
 
 [tool.poetry.dependencies]
 python = "^3.10"

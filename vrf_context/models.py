@@ -20,6 +20,9 @@ class VRFContext(NetBoxModel):
     bgp_sessions = models.ManyToManyField('netbox_bgp.BGPSession')
     static_routes = models.ManyToManyField('netbox_static_routes.StaticRoute')
 
+    def __str__(self):
+        return f'{self.device}:{self.vrf}'
+
     def get_absolute_url(self):
         return reverse('plugins:vrf_context:vrfcontext', args=[self.pk])
     
