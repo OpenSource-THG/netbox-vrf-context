@@ -28,7 +28,7 @@ The plugin is available as a Python package in pypi and can be installed with pi
 ```
 pip install netbox-vrf-context
 ```
-Enable the plugin in /opt/netbox/netbox/netbox/configuration.py:
+Enable the plugin in `netbox/netbox/configuration.py` in the `PLUGINS` parameter (which is a list):
 ```
 PLUGINS = [
     'netbox_bgp',
@@ -36,6 +36,4 @@ PLUGINS = [
     'netbox-vrf-context'
 ]
 ```
-Restart NetBox and add `netbox-vrf-context` and 2 other dependencies to your local_requirements.txt
-
 See [NetBox Documentation](https://docs.netbox.dev/en/stable/plugins/#installing-plugins) for details
