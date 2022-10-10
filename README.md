@@ -23,4 +23,19 @@ invoke build
 invoke debug
 ```
 
+## Deployment
 
+The plugin is available as a Python package in pypi and can be installed with pip  
+
+```
+pip install netbox-vrf-context
+```
+Enable the plugin in `netbox/netbox/configuration.py` in the `PLUGINS` parameter (which is a list):
+```
+PLUGINS = [
+    'netbox_bgp',
+    'netbox_static_routes',
+    'netbox-vrf-context'
+]
+```
+Save the file and restart the Netbox service.
