@@ -1,0 +1,83 @@
+{% extends 'generic/object.html' %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+  <div class="row mb-3">
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">VRF Context</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Device</th>
+              <td><a href="{{ object.device.get_absolute_url }}">{{ object.device }}</a></td>
+            </tr>
+            <tr>
+              <th scope="row">VRF</th>
+              <td><a href="{{ object.vrf.get_absolute_url }}">{{ object.vrf }}</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      {% include 'inc/panels/custom_fields.html' %}
+    </div>
+    <div class="col col-md-6">
+      {% include 'inc/panels/tags.html' %}
+      {% include 'inc/panels/comments.html' %}
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col col-md-12">
+      <div class="card">
+        <h5 class="card-header">BGP Sessions</h5>
+        <div class="card-body">
+          {% if object.bgp_sessions.count %}
+          <table class="table table-hover attr-table">
+            <tr>
+              <th>Session</th>
+              <th>Local AS</th>
+              <th>Local Address</th>
+            </tr>
+            {% for i in object.bgp_sessions.all %}
+            <tr>
+              <td><a href="{{ i.get_absolute_url }}">{{ i }}</a></td>
+              <td>{{ i.local_as }}</td>
+              <td>{{ i.local_address }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+          {% else %}
+            <div>None</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col col-md-12">
+      <div class="card">
+        <h5 class="card-header">Static Routes</h5>
+        <div class="card-body">
+          {% if object.static_routes.count %}
+          <table class="table table-hover attr-table">
+            <tr>
+              <th>Route</th>
+              <th>VRF</th>
+              <th>Destination Prefix</th>
+            </tr>
+            {% for i in object.static_routes.all %}
+            <tr>
+              <td><a href="{{ i.get_absolute_url }}">{{ i }}</a></td>
+              <td>{{ i.vrf }}</td>
+              <td>{{ i.destination_prefix }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+          {% else %}
+            <div>None</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

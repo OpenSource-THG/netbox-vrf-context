@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "netbox-vrf-context"
+version = "0.1.0"
+description = "VRF Context plugin for Netbox"
+authors = ["The Hut Group"]
+readme = "README.md"
+license = "BSD-2-Clause"
+packages = [{include = "vrf_context"}]
+include = ["vrf_context/templates"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+netbox-bgp = "^0.7.0"
+netbox-static-routes-plugin = "^0.2"
+
+
+[tool.poetry.group.dev.dependencies]
+setuptools = "^65.4"
+bandit = "^1.7.4"
+black = "^22.8.0"
+invoke = "^1.7.1"
+pylint = "^2.15.0"
+pylint-django = "^2.5.3"
+pydocstyle = "^6.1.1"
+yamllint = "^1.27.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
